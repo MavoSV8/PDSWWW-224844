@@ -15,7 +15,8 @@
 
 	GRA:
 
-	Na początku trzeba stworzyc ładne okienka pokazujace odgadywane losowo z JSONa słowo, proszę użyć róznych cssow np box-shadow każda litera to osobno stworzony np span.
+	Na początku trzeba stworzyc ładne okienka pokazujace odgadywane losowo z JSONa słowo, proszę użyć róznych cssow np box-shadow
+	każda litera to osobno stworzony np span.
 	Potem w polu tekstowym duzym wysrodkowanym pod hasłem prosimy uzytkownika o litere. Jeśli w haśle są takie litery to odkrywamy je.
 	Jeśli brak takiej litery to odejmuje od zyć 1 punkt.
 	Jeśli wszystkie litery odgadlismy to dodajemy uzytkownikowi 5 dodatkowych zyć i losujemy gre od początku.
@@ -32,21 +33,27 @@
 
 	</head>
 	<body>
-
-
-
 		<div id="panstwa"></div>
 
 		<div id="game">
-			<input type="text" placeholder="wpisz litere" id="wpisz_litere" value="Wpisz litere"/>
-			<button id="graj">GRAJ</button>
-		</div>
-		<div id="autor">
-			<div class="closeAutorButton">
-
+			<div class="input">
+				<input type="text" placeholder="wpisz litere" id="wpisz_litere" maxlength="1"/>
+				<button id="sprawdz">Sprawdź</button>
+			</div>
+			<div class="info">
+				<div id="lives">Życia: 5</div>
+				<div id="points">Punkty: 0</div>
 			</div>
 		</div>
-		<div id="gamestart">
+		<div id="autor" style="display: none">
+			<div class="closeAutorButton">
+				<button id="close">Close</button>
+				<b>Łukasz Pasiński</b><br>
+				<b>224844</b><br>
+				<b>Coś o mnie: Lubię pizzę.</b>
+			</div>
+		</div>
+		<div id="gamestart" style="display: none">
 			<button id="startButton">Start</button>
 			<button id="autorButton">Autor</button>
 		</div>
