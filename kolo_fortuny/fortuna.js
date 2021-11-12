@@ -1,7 +1,7 @@
 
 var game = {
   zdobyte : 0,
-  zycia : 1,
+  zycia : 5,
 }
 console.log(data[0]['country']);
 var elem = document.getElementById("panstwa");
