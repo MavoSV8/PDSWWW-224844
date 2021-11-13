@@ -4,13 +4,6 @@ var game = {
   zycia : 5,
 }
 
-
-var drawnCountry = drawCountry();
-console.log(drawnCountry);
-
-
-
-
  // for (var i = 0; i < data[0]['country'].length; i += 1) {
  //   console.log(data[0]['country'][i]);
  //  }
@@ -20,7 +13,7 @@ startGame("gamestart");
 //LISTENERS
 
 document.getElementById("sprawdz").addEventListener("click", Sprawdz_Litery);
-document.getElementById("start").addEventListener("click",startGame);
+document.getElementById("start").addEventListener("click",playGame);
 document.getElementById("autor").addEventListener("click", showAuthor);
 document.getElementById("close").addEventListener("click", closeAuthor);
 
@@ -61,25 +54,26 @@ function closeAuthor(){
   document.getElementById("autorDiv").style.display = "none";
 }
 function drawCountry(){
-  var country = data[getRandomInt(0,data.length)]['country'];
+  let country = data[getRandomInt(0,data.length)]['country'];
   return country;
 }
 
-function addElement(mydiv)
-{
- 
-  newDiv = document.createElement("span");
-  newDiv.innerHTML = "jasiokotek";
+function playGame(){
+  document.getElementById("gamestart").style.display = "none";
+  document.getElementById("game").style.display = "block";
+  let country = drawCountry();
+  country = country.replace(/[^a-zA-Z ]/g, "").replace(/\s+/g, '');
+  console.log(country);
 
-  my_div = document.getElementById(mydiv);
-  document.body.insertBefore(newDiv, my_div);
-
-  newDiv2 = document.createElement("span");
-  newDiv2.innerHTML = "jasiokotek2";
-  document.body.insertBefore(newDiv2, my_div.nextSibling);
-
-  newDiv.classList.add("mystyle");  
+  for (let i = 0;i < country.length;i++){
+      let newDiv = document.createElement("span");
+      newDiv.id = country[i];
+      newDiv.innerHTML = country[i];
+      document.getElementById("letters").append(newDiv);
+  }
 }
+
+
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);

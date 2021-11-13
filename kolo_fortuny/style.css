@@ -28,7 +28,7 @@
     height: 60%;
     width: 60%;
     margin-left: 18%;
-    background-color: rgba(0, 0, 0, 0.1);
+    border: black 1px solid;
     border-radius: 10px;
 
 }
