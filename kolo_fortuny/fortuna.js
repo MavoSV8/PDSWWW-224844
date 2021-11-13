@@ -61,14 +61,26 @@ function drawCountry(){
 function playGame(){
   document.getElementById("gamestart").style.display = "none";
   document.getElementById("game").style.display = "block";
+  document.getElementById("letters").style.display = "block";
   let country = drawCountry();
-  country = country.replace(/[^a-zA-Z ]/g, "").replace(/\s+/g, '');
+  country = country.replace(/[^a-zA-Z ]/g, "");
   console.log(country);
 
   for (let i = 0;i < country.length;i++){
       let newDiv = document.createElement("span");
       newDiv.id = country[i];
       newDiv.innerHTML = country[i];
+      newDiv.style.border = "black 1px solid";
+      newDiv.style.width = "100px";
+      newDiv.style.padding = "1px";
+      newDiv.style.borderRadius = "10px";
+      if (country[i] === " "){
+        newDiv.style.backgroundColor = "red";
+      }
+      else{
+        newDiv.style.backgroundColor = "aqua";
+      }
+
       document.getElementById("letters").append(newDiv);
   }
 }

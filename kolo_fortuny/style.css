@@ -5,6 +5,16 @@
 /*    border: 1px solid red;*/
 /*}*/
 
+#letters{
+    text-align: center;
+    font-size: 30px;
+    position: fixed;
+    height: 30px;
+    width: 26%;
+    margin-left: 38%;
+    margin-top: 5%;
+}
+
 #info{
     margin-left: 25%;
     margin-top: 5%;
