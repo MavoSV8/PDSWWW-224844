@@ -21,8 +21,8 @@ startGame("gamestart");
 
 document.getElementById("sprawdz").addEventListener("click", Sprawdz_Litery);
 document.getElementById("start").addEventListener("click",startGame);
-document.getElementById("autor").addEventListener("click", showAuthor)
-
+document.getElementById("autor").addEventListener("click", showAuthor);
+document.getElementById("close").addEventListener("click", closeAuthor);
 
 //FUNKCJE
 function Sprawdz_Litery(){
@@ -54,6 +54,11 @@ function startGame(starterDiv){
 function showAuthor(){
   document.getElementById("gamestart").style.display = "none";
   document.getElementById("autorDiv").style.display = "block";
+}
+
+function closeAuthor(){
+  document.getElementById("gamestart").style.display = "block";
+  document.getElementById("autorDiv").style.display = "none";
 }
 function drawCountry(){
   var country = data[getRandomInt(0,data.length)]['country'];

@@ -5,10 +5,31 @@
 /*    border: 1px solid red;*/
 /*}*/
 
+#info{
+    margin-left: 25%;
+    margin-top: 5%;
+    padding-left: 15px;
+    padding-top: 15px;
+    height: 15%;
+    width: 180px;
+    position: fixed;
+    background-color: aqua;
+    border-radius: 10px;
+    border: white 3px inset;
+
+}
+
+#close{
+    margin-left: 70%;
+}
+
 #autorDiv{
     position: fixed;
     height: 60%;
     width: 60%;
+    margin-left: 18%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 
 }
 
