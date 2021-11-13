@@ -12,6 +12,13 @@
 
 }
 
+#gamestart {
+    height: 100px;
+    width: 200px;
+    position: relative;
+
+}
+
 body {
     font-family: "Arial Black";
     width: 100%;

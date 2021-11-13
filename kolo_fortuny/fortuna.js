@@ -4,14 +4,10 @@ var game = {
   zycia : 5,
 }
 
-function drawCountry(){
-  var country = data[getRandomInt(0,data.length)]['country'];
-  return country;
-}
+
 var drawnCountry = drawCountry();
 console.log(drawnCountry);
-var elem = document.getElementById("panstwa");
-elem.innerHTML = drawnCountry;
+
 
 
 
@@ -19,12 +15,13 @@ elem.innerHTML = drawnCountry;
    console.log(data[0]['country'][i]);
   }
 
-
-addElement("wrap");
+startGame("gamestart");
+//addElement("wrap");
 //LISTENERS
 
 document.getElementById("sprawdz").addEventListener("click", Sprawdz_Litery);
-console.log(game.zycia);
+document.getElementById("start").addEventListener("click",startGame);
+
 
 
 //FUNKCJE
@@ -33,15 +30,25 @@ function Sprawdz_Litery(){
   console.log(liter);
   console.log(getRandomInt(10,20));
 }
-function StartGame(starterDiv,autorDiv){
-  startDiv = document.createElement("span");
-  authorDiv = document.getElementById(gameDiv);
-  document.body.insertBefore(newDiv, my_div);
+function startGame(starterDiv){
 
-  newDiv2 = document.createElement("span");
-  newDiv2.innerHTML = "jasiokotek2";
-  document.body.insertBefore(newDiv2, my_div.nextSibling);
+  var button1 = document.createElement("button");
+  var button2 = document.createElement("button");
+  button1.id = "start";
+  button1.innerHTML = "Start";
 
+  button2.id = "autor";
+  button2.innerHTML = "Autor";
+
+
+  document.getElementById(starterDiv).append(button1);
+  document.getElementById(starterDiv).append(button2);
+
+}
+
+function drawCountry(){
+  var country = data[getRandomInt(0,data.length)]['country'];
+  return country;
 }
 
 function addElement(mydiv)
