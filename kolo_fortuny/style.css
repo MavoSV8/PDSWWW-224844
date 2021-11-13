@@ -1,11 +1,11 @@
-#wrap{
-    position: relative;
-    float: left;
-    width: 100%;
-    border: 1px solid red;
-}
+/*#input{*/
+/*    position: relative;*/
+/*    float: left;*/
+/*    width: 100%;*/
+/*    border: 1px solid red;*/
+/*}*/
 
-#autor{
+#autorDiv{
     position: fixed;
     height: 60%;
     width: 60%;
@@ -13,10 +13,14 @@
 }
 
 #gamestart {
-    height: 100px;
+    height: 70px;
     width: 200px;
     position: relative;
-
+    margin-left: 43%;
+    margin-top: 5%;
+    background-color: aqua;
+    border-radius: 10px;
+    border: white 3px inset;
 }
 
 body {
