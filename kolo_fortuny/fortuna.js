@@ -3,12 +3,17 @@ var game = {
   zdobyte : 0,
   zycia : 5,
 }
-console.log(data[0]['country']);
-var elem = document.getElementById("panstwa");
-elem.innerHTML =data[0]['country'];
 
-console.log(data.length);
-console.log(data[0]['country'][2]);
+function drawCountry(){
+  var country = data[getRandomInt(0,data.length)]['country'];
+  return country;
+}
+var drawnCountry = drawCountry();
+console.log(drawnCountry);
+var elem = document.getElementById("panstwa");
+elem.innerHTML = drawnCountry;
+
+
 
  for (var i = 0; i < data[0]['country'].length; i += 1) {
    console.log(data[0]['country'][i]);
@@ -18,7 +23,7 @@ console.log(data[0]['country'][2]);
 addElement("wrap");
 //LISTENERS
 
-document.getElementById("graj").addEventListener("click", Sprawdz_Litery);
+document.getElementById("sprawdz").addEventListener("click", Sprawdz_Litery);
 console.log(game.zycia);
 
 
