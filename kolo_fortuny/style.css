@@ -15,6 +15,12 @@
     margin-top: 5%;
 }
 
+#game{
+    position: relative;
+    margin-left: 38%;
+    margin-top: 10%;
+}
+
 #info{
     margin-left: 25%;
     margin-top: 5%;
