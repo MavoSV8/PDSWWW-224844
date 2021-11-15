@@ -4,6 +4,7 @@ var game = {
   zycia : 5,
 }
 
+let country;
  // for (var i = 0; i < data[0]['country'].length; i += 1) {
  //   console.log(data[0]['country'][i]);
  //  }
@@ -12,17 +13,13 @@ startGame("gamestart");
 //addElement("wrap");
 //LISTENERS
 
-document.getElementById("sprawdz").addEventListener("click", Sprawdz_Litery);
+
 document.getElementById("start").addEventListener("click",playGame);
 document.getElementById("autor").addEventListener("click", showAuthor);
 document.getElementById("close").addEventListener("click", closeAuthor);
-
+document.getElementById("sprawdz").addEventListener("click", checkLetters);
 //FUNKCJE
-function Sprawdz_Litery(){
-  var liter = document.getElementById("wpisz_litere").value;
-  console.log(liter);
-  console.log(getRandomInt(10,20));
-}
+
 function startGame(starterDiv){
 
   var button1 = document.createElement("button");
@@ -54,28 +51,26 @@ function closeAuthor(){
   document.getElementById("autorDiv").style.display = "none";
 }
 function drawCountry(){
-  let country = data[getRandomInt(0,data.length)]['country'];
-  return country;
+    return data[getRandomInt(0, data.length)]['country'];
 }
 
 function playGame(){
   document.getElementById("gamestart").style.display = "none";
   document.getElementById("game").style.display = "block";
   document.getElementById("letters").style.display = "block";
-  let country = drawCountry();
-  country = country.replace(/[^a-zA-Z ]/g, "");
+  country = drawCountry();
+  //country = country.replace(/[^a-zA-Z]/g, "");
   console.log(country);
 
   for (let i = 0;i < country.length;i++){
-      let newDiv = document.createElement("span");
-      newDiv.id = country[i];
+      let newDiv = document.createElement("div");
+      newDiv.className = country[i].toLowerCase();
       newDiv.innerHTML = country[i];
-      newDiv.style.border = "black 1px solid";
-      newDiv.style.width = "100px";
-      newDiv.style.padding = "1px";
-      newDiv.style.borderRadius = "10px";
-      if (country[i] === " "){
+      newDiv.style.color = "aqua";
+      newDiv.id = "letterBox";
+      if (country[i].match(/[^a-zA-Z]/g)){
         newDiv.style.backgroundColor = "red";
+          newDiv.style.color = "red";
       }
       else{
         newDiv.style.backgroundColor = "aqua";
@@ -85,7 +80,25 @@ function playGame(){
   }
 }
 
+function checkLetters(){
+    let letter = document.getElementById("wpisz_litere").value;
+    console.log(letter);
+    letter = letter.toLowerCase();
+    if (country.toLowerCase().includes(letter) && !letter.match(/[^a-zA-Z]/g)) {
+        let letters = document.getElementsByClassName(letter);
+        for(let i = 0;i<letters.length;i++){
+            letters[i].style['color'] = "black";
+        }
 
+    }
+    else {
+        game.zycia--;
+    }
+    if(game.zycia === 0){
+
+    }
+
+}
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
