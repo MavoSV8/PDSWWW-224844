@@ -5,10 +5,13 @@ var game = {
 }
 
 let country;
+let counter = 0;
+let usedLetters = [];
  // for (var i = 0; i < data[0]['country'].length; i += 1) {
  //   console.log(data[0]['country'][i]);
  //  }
-
+updateLives(game.zycia);
+updatePoints(game.zdobyte);
 startGame("gamestart");
 //addElement("wrap");
 //LISTENERS
@@ -22,8 +25,8 @@ document.getElementById("sprawdz").addEventListener("click", checkLetters);
 
 function startGame(starterDiv){
 
-  var button1 = document.createElement("button");
-  var button2 = document.createElement("button");
+  let button1 = document.createElement("button");
+  let button2 = document.createElement("button");
   button1.id = "start";
   button1.innerHTML = "Start";
   button1.style.width = "50px";
@@ -65,8 +68,7 @@ function playGame(){
   for (let i = 0;i < country.length;i++){
       let newDiv = document.createElement("div");
       newDiv.className = country[i].toLowerCase();
-      newDiv.innerHTML = country[i];
-      newDiv.style.color = "aqua";
+      newDiv.style.color = "black";
       newDiv.id = "letterBox";
       if (country[i].match(/[^a-zA-Z]/g)){
         newDiv.style.backgroundColor = "red";
@@ -84,20 +86,50 @@ function checkLetters(){
     let letter = document.getElementById("wpisz_litere").value;
     console.log(letter);
     letter = letter.toLowerCase();
-    if (country.toLowerCase().includes(letter) && !letter.match(/[^a-zA-Z]/g)) {
+    if (country.toLowerCase().includes(letter) && !letter.match(/[^a-zA-Z]/g) && !usedLetters.includes(letter)) {
         let letters = document.getElementsByClassName(letter);
         for(let i = 0;i<letters.length;i++){
-            letters[i].style['color'] = "black";
+            letters[i].innerHTML = letter;
+            counter++;
         }
-
+        console.log(counter);
+        usedLetters.push(letter);
     }
     else {
         game.zycia--;
+        updateLives(game.zycia);
     }
     if(game.zycia === 0){
+        updateLives(game.zycia);
+        if(alert("Przegrałeś")){
+
+        }else{
+            window.location.reload(true);
+        }
 
     }
+    if(counter === country.length){
+        let element = document.getElementById("letters");
+        while (element.firstChild) {
+            element.removeChild(element.lastChild);
+        }
+        usedLetters.length = 0;
+        console.log(usedLetters);
+        counter = 0;
+        updateLives(game.zycia = game.zycia + 5);
+        game.zdobyte++
+        updatePoints(game.zdobyte);
+        playGame();
+    }
 
+}
+
+function updateLives(zycia){
+    document.getElementById("lives").innerHTML = "Życia: " + zycia;
+}
+
+function updatePoints(punkty){
+    document.getElementById("points").innerHTML = "Punkty: " + punkty;
 }
 
 function getRandomInt(min, max) {
