@@ -62,7 +62,7 @@ function playGame(){
   document.getElementById("gamestart").style.display = "none";
   document.getElementById("game").style.display = "block";
   document.getElementById("letters").style.display = "block";
-    document.getElementById("gameInfo").style.display = "block";
+  document.getElementById("gameInfo").style.display = "block";
   country = drawCountry();
   //country = country.replace(/[^a-zA-Z]/g, "");
   console.log(country);
