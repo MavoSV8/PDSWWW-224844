@@ -40,6 +40,7 @@ function startGame(starterDiv){
   button2.style.margin = "25px";
 
   document.getElementById("game").style.display = "none";
+  document.getElementById("gameInfo").style.display = "none";
   document.getElementById(starterDiv).append(button1);
   document.getElementById(starterDiv).append(button2);
 
@@ -61,6 +62,7 @@ function playGame(){
   document.getElementById("gamestart").style.display = "none";
   document.getElementById("game").style.display = "block";
   document.getElementById("letters").style.display = "block";
+    document.getElementById("gameInfo").style.display = "block";
   country = drawCountry();
   //country = country.replace(/[^a-zA-Z]/g, "");
   console.log(country);
@@ -87,6 +89,8 @@ function checkLetters(){
 
     console.log(letter);
     letter = letter.toLowerCase();
+    country = country.replace(/[^a-zA-Z]/g, "");
+    console.log(country)
     if (country.toLowerCase().includes(letter) && !letter.match(/[^a-zA-Z]/g) && !usedLetters.includes(letter)) {
         let letters = document.getElementsByClassName(letter);
         for(let i = 0;i<letters.length;i++){
@@ -110,7 +114,7 @@ function checkLetters(){
         }
 
     }
-    if(counter === country.length){
+    if(counter >= country.length){
         let element = document.getElementById("letters");
         while (element.firstChild) {
             element.removeChild(element.lastChild);

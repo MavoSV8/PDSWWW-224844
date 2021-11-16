@@ -1,9 +1,4 @@
-/*#input{*/
-/*    position: relative;*/
-/*    float: left;*/
-/*    width: 100%;*/
-/*    border: 1px solid red;*/
-/*}*/
+
 
 #letterBox {
     float: left;
@@ -12,23 +7,34 @@
     border: black 1px solid;
     padding: 1px;
     border-radius: 10px;
-    position: relative;
+    position: center;
 }
+#gameInfo {
+    position: center;
+    text-align: end;
+    width: 99%;
+    height: 60px;
+    float: left;
 
+}
 #letters{
+    position: center;
+    padding-left: 30%;
     text-align: center;
     font-size: 30px;
-    position: fixed;
-    height: 60px;
-    width: 50%;
-    margin-left: 38%;
-    margin-top: 5%;
+    float: left;
+    height: 200px;
+    margin-left: 5%;
+    width: 30%;
+
 }
 
 #game{
-    position: relative;
-    margin-left: 38%;
-    margin-top: 10%;
+    position: center;
+    float: left;
+    width: 100%;
+    padding-left: 40%;
+
 }
 
 #info{
