@@ -84,6 +84,7 @@ function playGame(){
 
 function checkLetters(){
     let letter = document.getElementById("wpisz_litere").value;
+
     console.log(letter);
     letter = letter.toLowerCase();
     if (country.toLowerCase().includes(letter) && !letter.match(/[^a-zA-Z]/g) && !usedLetters.includes(letter)) {
@@ -99,6 +100,7 @@ function checkLetters(){
         game.zycia--;
         updateLives(game.zycia);
     }
+    document.getElementById("wpisz_litere").value = null;
     if(game.zycia === 0){
         updateLives(game.zycia);
         if(alert("Przegrałeś")){
