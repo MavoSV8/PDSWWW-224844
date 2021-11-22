@@ -5,10 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" placeholder="enter year" id="year"/>
-<input type="text" placeholder="enter month" id="month"/>
-<input type="text" placeholder="enter day" id="day"/>
-<input type="text" placeholder="enter last 5 nr of PESEL"/>
-
+<input type="text" placeholder="enter year" id="year" maxlength="4"/>
+<input type="text" placeholder="enter month" id="month" maxlength="2"/>
+<input type="text" placeholder="enter day" id="day" max="2"/>
+<input type="text" placeholder="enter last 5 nr of PESEL" id="restPesel" maxlength="5"/>
+<button id="validatePesel">Validate entered PESEL</button>
+<button id="showAllPesels">Show all PESELs for given date</button>
+<button id="findValidPesels">Find valid PESELs</button>
+<script type="text/javascript" src="validate_one_pesel.js"></script>
+<script type="text/javascript" src="show_all_pesels.js"></script>
+<script type="text/javascript" src="find_valid_pesels.js"></script>
 </body>
 </html>
