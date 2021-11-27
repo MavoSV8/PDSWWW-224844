@@ -1,11 +1,11 @@
 
-document.getElementById("findValidPesels").addEventListener("click",findAllPesels);
-
-function findAllPesels(){
+//document.getElementById("findValidPesels").addEventListener("click",findAllPesels);
+this.addEventListener("message",findAllPesels);
+function findAllPesels(e){
     var year;
     var day;
     var month;
-    var fiveDigits = document.getElementById("restPesel").value;
+    var fiveDigits = e.data;
     var startDate = new Date(1930,0,1);
     var endDate = new Date(2051,0,1);
     var PESEL = "";
@@ -47,5 +47,6 @@ function findAllPesels(){
         startDate = new Date(newDate);
 
     }
-    document.getElementById("resultDiv").innerHTML = PESELarray;
+    this.postMessage(PESELarray);
+    //this.close();
 }

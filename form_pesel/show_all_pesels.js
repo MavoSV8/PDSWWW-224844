@@ -1,11 +1,11 @@
 
 
-document.getElementById("showAllPesels").addEventListener("click",showAllPesels);
-
-function showAllPesels(){
-    var year = document.getElementById("year").value;
-    var month = document.getElementById("month").value;
-    var day = document.getElementById("day").value;
+//document.getElementById("showAllPesels").addEventListener("click",showAllPesels);
+this.addEventListener("message",showAllPesels);
+function showAllPesels(e){
+    var year = e.data[0];
+    var month = e.data[1];
+    var day = e.data[2];
     var fiveDigits;
     var PESEL = "";
     var PESELarray = [];
@@ -41,5 +41,6 @@ function showAllPesels(){
             PESELarray.push(PESEL);
         }
     }
-    document.getElementById("resultDiv").innerHTML = PESELarray;
+    this.postMessage(PESELarray);
+    //this.close();
 }

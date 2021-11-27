@@ -3,20 +3,25 @@
 
 
 
-document.getElementById("validatePesel").addEventListener("click",validatePesel);
-function validatePesel(){
-    var year = document.getElementById("year").value;
-    var month = document.getElementById("month").value;
-    var day = document.getElementById("day").value;
-    var restOfPesel = document.getElementById("restPesel").value;
+//document.getElementById("validatePesel").addEventListener("click",validatePesel);
+
+this.addEventListener("message",validatePesel);
+function validatePesel(e){
+
+    var year = e.data[0];
+    var month = e.data[1];
+    var day = e.data[2];
+    var restOfPesel = e.data[3];
     var PESEL = year[2] + year[3] + month + day + restOfPesel;
     //document.write(PESEL);
     if (calculateChecksum(PESEL) == PESEL[10])
     {
-        document.getElementById("resultDiv").innerHTML = "valid";
+        this.postMessage("valid");
+        //this.close();
     }
     else{
-        document.getElementById("resultDiv").innerHTML = "invalid";
+        this.postMessage("invalid");
+        //this.close();
     }
 
 
